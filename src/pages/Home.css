@@ -1,0 +1,26 @@
+.home {
+  margin: 0 auto;
+  padding: 50px;
+  text-align: center;
+}
+.home__image {
+  width: 200px;
+  margin: 0 auto;
+}
+.home__image img {
+  width: 100%;
+}
+.home__title {
+  margin-top: 20px;
+  font-size: 48px;
+  color: #2c3e51;
+  cursor: pointer;
+}
+.home__title:hover {
+  font-size: 56px;
+  transition: all is ease-in-out;
+}
+.home__description {
+  margin-top: 40px;
+  color: #2c3e51;
+}

@@ -1,0 +1,36 @@
+.navbar {
+  background-color: #f0f5f9;
+  font-weight: 400;
+}
+
+#navbar__brand {
+  font-size: 36px;
+  color: #000000;
+}
+.navbar__nav {
+  color: #000000;
+}
+.container {
+  width: 90%;
+}
+
+@media screen and (min-width: 576px) {
+  .container {
+    width: 600px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 700px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .container {
+    width: 900px;
+  }
+}
+@media screen and (min-width: 1120px) {
+  .container {
+    width: 1000px;
+  }
+}
