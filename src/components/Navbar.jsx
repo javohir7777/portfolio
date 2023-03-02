@@ -37,12 +37,12 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item navbar__item">
-              <Link to="/projects" className="nav-link navbar__link mx-3">
+              <Link to="/experience" className="nav-link navbar__link mx-3">
                 Skills
               </Link>
             </li>
             <li className="nav-item navbar__item">
-              <Link to="/experience" className="nav-link navbar__link mx-3">
+              <Link to="/projects" className="nav-link navbar__link mx-3">
                 Loyihalarim
               </Link>
             </li>
