@@ -1,5 +1,5 @@
 import React from "react";
-import "./Home";
+import "./Home.css";
 const Home = () => {
   return (
     <main className="home container my-5">
@@ -16,6 +16,13 @@ const Home = () => {
         dasturlash bilan shug'ilanib kelaman. Hozirda Toshkent axborot
         texnologiyalari universiteti 3-bosqich talabasiman.
       </p>
+      <a
+        href="Javohir_Jumayev.pdf"
+        className="btn btn-outline-success"
+        download
+      >
+        Download Cv
+      </a>
     </main>
   );
 };
