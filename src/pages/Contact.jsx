@@ -1,53 +1,81 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 
 const Contact = () => {
+  const Commit = JSON.parse(localStorage.getItem("usercommits"));
+  const Commits = Commit["localdata"];
+  const initialState = [...Commits];
+  const [data, setData] = useState(initialState);
+  const [clients, setClients] = useState(...data);
+
+  const handlClick = (e) => {
+    setClients((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setData((prev) => [...prev, clients]);
+    localStorage.setItem("usercommits", JSON.stringify({ localdata: data }));
+    const Commit = JSON.parse(localStorage.getItem("usercommits"));
+    console.log(Commit);
+    // document.getElementById("exampleInputUser").value = "";
+    // document.getElementById("exampleInputTel").value = "";
+    // document.getElementById("exampleInputFam").value = "";
+    // document.getElementById("floatingText").value = "";
+  };
   return (
     <div>
       <Navbar />
       <br />
       <br />
       <div className="container">
-        <form className="my-5 container">
+        <form className="my-5 container" onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Ismingizni kiriting
             </label>
             <input
               type="text"
               className="form-control"
-              id="exampleInputEmail1"
+              id="exampleInputUser"
+              name="user"
               aria-describedby="emailHelp"
+              onChange={handlClick}
             />
           </div>
           <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Familiyangizni kiriting
             </label>
             <input
               type="text"
               className="form-control"
-              id="exampleInputPassword1"
+              id="exampleInputFam"
+              name="surname"
+              onChange={handlClick}
             />
           </div>
           <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Telifon nomeringizni kiriting
             </label>
             <input
               type="number"
               className="form-control"
-              id="exampleInputPassword1"
+              id="exampleInputTel"
+              name="number"
+              onChange={handlClick}
             />
           </div>
-          <div class="form-floating">
+          <div className="form-floating">
             <textarea
               className="form-control"
               placeholder="Leave a comment here"
-              id="floatingTextarea2"
+              id="floatingText"
               style={{ height: "100px" }}
+              name="textarea"
+              onChange={handlClick}
             ></textarea>
-            <label for="floatingTextarea2">
+            <label htmlFor="floatingTextarea2">
               Sayt haqidagi fikringiz biz uchun muhim
             </label>
           </div>
@@ -57,8 +85,8 @@ const Contact = () => {
           </button>
         </form>
 
-        <table class="table table-hover">
-          <table class="table">
+        <table className="table table-hover">
+          <table className="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -69,13 +97,19 @@ const Contact = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Jumayev</td>
-                <td>Javohir</td>
-                <td>+9989967867862</td>
-                <td>Nima gaplar nima qilib yuribsizlar</td>
-              </tr>
+              {data.length !== 0
+                ? data.map((item, idx) => (
+                    <>
+                      <tr>
+                        <th scope="row">{idx + 1}</th>
+                        <td>{item.surname}</td>
+                        <td>{item.user}</td>
+                        <td>{item.number}</td>
+                        <td>{item.textarea}</td>
+                      </tr>
+                    </>
+                  ))
+                : ""}
             </tbody>
           </table>
         </table>
