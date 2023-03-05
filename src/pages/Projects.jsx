@@ -10,7 +10,11 @@ const Projects = () => {
       <br />
       <section className="my-5">
         <div className="card my-5" style={{ width: "18rem" }}>
-          <img src="..." className="card-img-top" alt="..." />
+          <img
+            src="../pages/projects_img/Capture.PNG"
+            className="card-img-top"
+            alt="..."
+          />
           <div className="card-body">
             <h5 className="card-title">Card title</h5>
             <p className="card-text">
