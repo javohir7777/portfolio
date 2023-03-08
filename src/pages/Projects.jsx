@@ -11,7 +11,7 @@ const Projects = () => {
       <section className="my-5">
         <div className="card my-5" style={{ width: "18rem" }}>
           <img
-            src="../pages/projects_img/Capture.PNG"
+            src="../../public/projects_img/capture.png"
             className="card-img-top"
             alt="..."
           />

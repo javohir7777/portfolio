@@ -1,121 +1,70 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import Navbar from "../components/Navbar";
+import "./css/Contact.css";
 
-const Contact = () => {
-  const Commit = JSON.parse(localStorage.getItem("usercommits"));
-  const Commits = Commit["localdata"];
-  const initialState = [...Commits];
-  const [data, setData] = useState(initialState);
-  const [clients, setClients] = useState(...data);
+class Contact extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      favourite: false,
+      like: false,
+    };
+  }
 
-  const handlClick = (e) => {
-    setClients((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  onLike = () => {
+    this.setState(({ like }) => ({
+      like: !like,
+    }));
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setData((prev) => [...prev, clients]);
-    localStorage.setItem("usercommits", JSON.stringify({ localdata: data }));
-    const Commit = JSON.parse(localStorage.getItem("usercommits"));
-    console.log(Commit);
-    // document.getElementById("exampleInputUser").value = "";
-    // document.getElementById("exampleInputTel").value = "";
-    // document.getElementById("exampleInputFam").value = "";
-    // document.getElementById("floatingText").value = "";
-  };
-  return (
-    <div>
-      <Navbar />
-      <br />
-      <br />
-      <div className="container">
-        <form className="my-5 container" onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              Ismingizni kiriting
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="exampleInputUser"
-              name="user"
-              aria-describedby="emailHelp"
-              onChange={handlClick}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">
-              Familiyangizni kiriting
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="exampleInputFam"
-              name="surname"
-              onChange={handlClick}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">
-              Telifon nomeringizni kiriting
-            </label>
-            <input
-              type="number"
-              className="form-control"
-              id="exampleInputTel"
-              name="number"
-              onChange={handlClick}
-            />
-          </div>
-          <div className="form-floating">
-            <textarea
-              className="form-control"
-              placeholder="Leave a comment here"
-              id="floatingText"
-              style={{ height: "100px" }}
-              name="textarea"
-              onChange={handlClick}
-            ></textarea>
-            <label htmlFor="floatingTextarea2">
-              Sayt haqidagi fikringiz biz uchun muhim
-            </label>
-          </div>
-          <br />
-          <button type="submit" className="btn btn-outline-success">
-            Submit
-          </button>
-        </form>
+  render() {
+    const data = [
+      { name: "Empire of osmon", viwers: 988, id: 1 },
+      { name: "Ertugrul", viwers: 789, id: 2 },
+      { name: "Osmon", viwers: 1091, id: 3 },
+    ];
 
-        <table className="table table-hover">
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Familya</th>
-                <th scope="col">Ism</th>
-                <th scope="col">Nomer</th>
-                <th scope="col">Komentariya</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.length !== 0
-                ? data.map((item, idx) => (
-                    <>
-                      <tr>
-                        <th scope="row">{idx + 1}</th>
-                        <td>{item.surname}</td>
-                        <td>{item.user}</td>
-                        <td>{item.number}</td>
-                        <td>{item.textarea}</td>
-                      </tr>
-                    </>
-                  ))
-                : ""}
-            </tbody>
-          </table>
-        </table>
+    return (
+      <div>
+        <Navbar />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <ul className="movie-list container">
+          {data.map((item) => (
+            <li
+              className={`list-group-item d-flex justify-content-between ${
+                this.state.favourite && "favourite"
+              } ${this.state.like && "like"}`}
+            >
+              <span className="list-group-item-lable" onClick={this.onLike}>
+                {item.name}
+              </span>
+              <input
+                type="number"
+                className="list-group-item-input"
+                defaultValue={item.viwers}
+              />
+              <div className="d-flex justify-content-center align-items-center">
+                <button
+                  type="button"
+                  className="btn-cookie btn-sm"
+                  onClick={this.onFavourite}
+                >
+                  <i className="fa fa-check-square"></i>
+                </button>
+                <button type="button" className="btn-trash btn-sm">
+                  <i className="fa fa-trash"></i>
+                </button>
+                <i className="fa fa-star"></i>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Contact;

@@ -3,6 +3,11 @@ import Navbar from "./components/Navbar";
 import { Contact, Experience, Home, Projects } from "./pages";
 import "./App.css";
 const App = () => {
+  const data = [
+    { name: "Empire of osmon", viwers: 988, favourite: false, id: 1 },
+    { name: "Ertugrul", viwers: 789, favourite: false, id: 2 },
+    { name: "Osmon", viwers: 1091, favourite: true, id: 3 },
+  ];
   return (
     <div>
       <Navbar />
