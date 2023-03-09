@@ -7,8 +7,8 @@ class AppFilterItem extends Component {
     this.state = { favourite: false };
   }
   onFavourite = () => {
-    this.setState((prevState) => ({
-      favourite: !prevState.favourite,
+    this.setState(({ favourite }) => ({
+      favourite: !favourite,
     }));
   };
   render() {
