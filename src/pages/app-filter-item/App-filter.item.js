@@ -4,23 +4,30 @@ import "./App-filter-item.css";
 class AppFilterItem extends Component {
   constructor(props) {
     super(props);
-    this.state = { favourite: false };
+    this.state = { favourite: false, like: false };
   }
   onFavourite = () => {
     this.setState(({ favourite }) => ({
       favourite: !favourite,
     }));
   };
+  onLike = () => {
+    this.setState(({ like }) => ({
+      like: !like,
+    }));
+  };
   render() {
     const { name, viewers } = this.props,
-      { favourite } = this.state;
+      { favourite, like } = this.state;
     return (
       <li
         className={`list-group-item d-flex justify-content-between ${
           favourite && "favourite"
-        }`}
+        } ${like && "like"}`}
       >
-        <span className="list-group-item-lable">{name}</span>
+        <span onClick={this.onLike} className="list-group-item-lable">
+          {name}
+        </span>
         <input
           type="number"
           className="list-group-item-input"
