@@ -2,13 +2,17 @@ import React from "react";
 import AppFilterItem from "../app-filter-item/App-filter.item";
 import "./App-filter.css";
 
-function AppFilter() {
+function AppFilter({ data }) {
   return (
-    <div className="movie-list">
-      <AppFilterItem />
-      <AppFilterItem />
-      <AppFilterItem />
-    </div>
+    <ul className="movie-list">
+      {data.map((item) => (
+        <AppFilterItem
+          name={item.name}
+          viewers={item.viewers}
+          favourite={item.favourite}
+        />
+      ))}
+    </ul>
   );
 }
 
