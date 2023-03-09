@@ -5,9 +5,9 @@ function AppFilterItem({ name, viewers, favourite }) {
     <li
       className={`list-group-item d-flex justify-content-between ${
         favourite && "favourite"
-      } `}
+      }`}
     >
-      <span className="list-group-item-label">{name}</span>
+      <span className="list-group-item-lable">{name}</span>
       <input
         type="number"
         className="list-group-item-input"
