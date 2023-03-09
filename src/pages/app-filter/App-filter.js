@@ -7,6 +7,7 @@ function AppFilter({ data }) {
     <ul className="movie-list">
       {data.map((item) => (
         <AppFilterItem
+          key={item.id}
           name={item.name}
           viewers={item.viewers}
           favourite={item.favourite}

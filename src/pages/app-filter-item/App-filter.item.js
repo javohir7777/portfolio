@@ -1,29 +1,58 @@
 import "./App-filter-item.css";
 
-function AppFilterItem({ name, viewers, favourite }) {
-  return (
-    <li
-      className={`list-group-item d-flex justify-content-between ${
-        favourite && "favourite"
-      }`}
-    >
-      <span className="list-group-item-lable">{name}</span>
-      <input
-        type="number"
-        className="list-group-item-input"
-        defaultValue={viewers}
-      />
-      <div className="d-flex justify-content-center align-items-center">
-        <button type="button" className="btn-cookie btn-sm">
-          <i className="fas fa-cookie"></i>
-        </button>
-        <button type="button" className="btn-trash btn-sm">
-          <i className="fas fa-trash"></i>
-        </button>
-        <i className="fas fa-star"></i>
-      </div>
-    </li>
-  );
+class AppFilterItem extends Component {
+  render() {
+    const { name, viewers, favourite } = this.this.props;
+    return (
+      <li
+        className={`list-group-item d-flex justify-content-between ${
+          favourite && "favourite"
+        }`}
+      >
+        <span className="list-group-item-lable">{name}</span>
+        <input
+          type="number"
+          className="list-group-item-input"
+          defaultValue={viewers}
+        />
+        <div className="d-flex justify-content-center align-items-center">
+          <button type="button" className="btn-cookie btn-sm">
+            <i className="fas fa-cookie"></i>
+          </button>
+          <button type="button" className="btn-trash btn-sm">
+            <i className="fas fa-trash"></i>
+          </button>
+          <i className="fas fa-star"></i>
+        </div>
+      </li>
+    );
+  }
 }
+
+// function AppFilterItem({ name, viewers, favourite }) {
+//   return (
+//     <li
+//       className={`list-group-item d-flex justify-content-between ${
+//         favourite && "favourite"
+//       }`}
+//     >
+//       <span className="list-group-item-lable">{name}</span>
+//       <input
+//         type="number"
+//         className="list-group-item-input"
+//         defaultValue={viewers}
+//       />
+//       <div className="d-flex justify-content-center align-items-center">
+//         <button type="button" className="btn-cookie btn-sm">
+//           <i className="fas fa-cookie"></i>
+//         </button>
+//         <button type="button" className="btn-trash btn-sm">
+//           <i className="fas fa-trash"></i>
+//         </button>
+//         <i className="fas fa-star"></i>
+//       </div>
+//     </li>
+//   );
+// }
 
 export default AppFilterItem;

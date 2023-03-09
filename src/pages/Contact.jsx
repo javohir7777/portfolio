@@ -6,9 +6,9 @@ import "./css/Contact.css";
 
 function Contact() {
   const data = [
-    { name: "Empire of osman", viewers: 988, favourite: false },
-    { name: "Ertugrul", viewers: 789, favourite: false },
-    { name: "Omar", viewers: 1091, favourite: true },
+    { name: "Empire of osman", viewers: 988, favourite: false, id: 1 },
+    { name: "Ertugrul", viewers: 789, favourite: false, id: 2 },
+    { name: "Omar", viewers: 1091, favourite: true, id: 3 },
   ];
   return (
     <div>
