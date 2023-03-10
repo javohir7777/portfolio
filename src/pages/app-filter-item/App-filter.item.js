@@ -17,7 +17,7 @@ class AppFilterItem extends Component {
     }));
   };
   render() {
-    const { name, viewers, onDelete } = this.props,
+    const { name, views, onDelete } = this.props,
       { favourite, like } = this.state;
     return (
       <li
@@ -31,7 +31,7 @@ class AppFilterItem extends Component {
         <input
           type="number"
           className="list-group-item-input"
-          defaultValue={viewers}
+          defaultValue={views}
         />
         <div className="d-flex justify-content-center align-items-center">
           <button
@@ -51,7 +51,7 @@ class AppFilterItem extends Component {
   }
 }
 
-// function AppFilterItem({ name, viewers, favourite }) {
+// function AppFilterItem({ name, views, favourite }) {
 //   return (
 //     <li
 //       className={`list-group-item d-flex justify-content-between ${
@@ -62,7 +62,7 @@ class AppFilterItem extends Component {
 //       <input
 //         type="number"
 //         className="list-group-item-input"
-//         defaultValue={viewers}
+//         defaultValue={views}
 //       />
 //       <div className="d-flex justify-content-center align-items-center">
 //         <button type="button" className="btn-cookie btn-sm">

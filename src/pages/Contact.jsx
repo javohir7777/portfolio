@@ -9,9 +9,9 @@ class Contact extends Component {
     super(props);
     this.state = {
       data: [
-        { name: "Empire of osman", viewers: 988, favourite: false, id: 1 },
-        { name: "Ertugrul", viewers: 789, favourite: false, id: 2 },
-        { name: "Omar", viewers: 1091, favourite: true, id: 3 },
+        { name: "Empire of osman", views: 988, favourite: false, id: 1 },
+        { name: "Ertugrul", views: 789, favourite: false, id: 2 },
+        { name: "Omar", views: 1091, favourite: true, id: 3 },
       ],
     };
   }
@@ -19,6 +19,12 @@ class Contact extends Component {
   onDelete = (id) => {
     this.setState(({ data }) => ({
       data: data.filter((c) => c.id !== id),
+    }));
+  };
+
+  addForm = (item) => {
+    this.setState(({ data }) => ({
+      data: [...data, item],
     }));
   };
 
@@ -30,7 +36,7 @@ class Contact extends Component {
         <br />
         <div className="app font-monospace">
           <div className="content">
-            <AppAddForm />
+            <AppAddForm addForm={this.addForm} />
             <AppFilter data={data} onDelete={this.onDelete} />
           </div>
         </div>

@@ -9,7 +9,7 @@ function AppFilter({ data, onDelete }) {
         <AppFilterItem
           key={item.id}
           name={item.name}
-          viewers={item.viewers}
+          views={item.views}
           favourite={item.favourite}
           onDelete={() => onDelete(item.id)}
         />
