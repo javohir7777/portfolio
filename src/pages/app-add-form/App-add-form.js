@@ -1,6 +1,6 @@
 import { Component } from "react";
 import "./App-add-form.css";
-import { v4 as uuidv4 } from "uuid";
+
 class AppAddForm extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +17,6 @@ class AppAddForm extends Component {
     this.props.addForm({
       name: name,
       views: views,
-      id: uuidv4(),
     });
     this.setState({
       name: "",
